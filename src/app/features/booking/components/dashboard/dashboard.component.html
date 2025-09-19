@@ -1,0 +1,37 @@
+<!-- Toast / mensajes -->
+<div class="toast" *ngIf="toastMessage">{{ toastMessage }}</div>
+
+<!-- Toolbar -->
+<header class="toolbar">
+  <div class="toolbar-left">
+    <span class="app-name">Gaspre App</span>
+  </div>
+  <div class="toolbar-right">
+    <button class="btn btn-primary" (click)="openCreateNewClass()">
+      New Class
+    </button>
+
+    <!-- User menu -->
+    <div class="user-menu-wrapper">
+      <button class="btn btn-secondary" (click)="toggleUserMenu()">User</button>
+      <ul class="user-menu" [class.active]="userMenuOpen">
+        <li *ngFor="let item of userMenuItems" (click)="onUserMenuClick(item)">
+          {{ item.label }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab-headers">
+    <div
+      class="tab-header"
+      [class.active]="activeTab === 'bookings'"
+      (click)="selectTab('bookings')"
+    >
+      Bookings
+    </div>
+  </div>
+</div>

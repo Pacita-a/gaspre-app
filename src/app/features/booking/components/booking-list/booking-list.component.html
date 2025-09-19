@@ -1,0 +1,29 @@
+
+<div class="booking-table-container">
+  <h2>📋 Available Bookings</h2>
+
+  <table class="booking-table">
+    <thead>
+      <tr>
+        <th>Class Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings$ | async">
+        <td>{{ booking.className | replaceCharacters : "_" : " " | titlecase}}</td>
+        <td>
+          <button (click)="viewMore(booking)">View more</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+ <!-- Modal -->
+  <app-booking-detail
+    *ngIf="selectedClass"
+    [selectedClass]="selectedClass"
+    (close)="closeModal()"
+  ></app-booking-detail>
