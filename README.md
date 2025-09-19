@@ -68,3 +68,15 @@ src/
 
 - Angular CLI versión: 15.2.11  
 - TypeScript: 4.9.4
+
+---
+
+
+### 🧩 Comunicación entre componentes
+
+En **Gaspre App**, la comunicación entre componentes se realiza mediante **@Input() y @Output()**:
+
+- El **componente padre** `BookingList` envía al **componente hijo** `BookingDetail` los datos de la clase seleccionada mediante `@Input()`.  
+- El **componente hijo** `BookingDetail` notifica al padre cuando el **modal fue cerrado** mediante `@Output()` con `EventEmitter`.  
+
+> ⚡ Nota: Actualmente se usa Input/Output para la comunicación directa, pero para aplicaciones más grandes y robustas se podría incorporar **Redux / NgRx**. Esto permitiría manejar una **única fuente de datos centralizada**, facilitando la gestión del estado y la comunicación entre múltiples componentes sin depender de la jerarquía padre-hijo.
